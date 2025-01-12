@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ban Appeal Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #4B0082, #000000, #1E90FF, #FFD700);
+      background-size: 400% 400%;
+      animation: gradientAnimation 10s ease infinite;
+      color: white;
+      text-align: center;
+    }
+
+    h1 {
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+    }
+
+    @keyframes gradientAnimation {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .container {
+      max-width: 500px;
+      margin: auto;
+      padding: 20px;
+      background-color: rgba(0, 0, 0, 0.7);
+      border-radius: 10px;
+      box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+    }
+
+    label {
+      font-size: 1.2rem;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: 1px solid #ffffff;
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      font-size: 1rem;
+    }
+
+    input::placeholder, textarea::placeholder {
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    input:focus, textarea:focus {
+      outline: none;
+      box-shadow: 0 0 10px 3px #1E90FF;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 1.2rem;
+      background-color: #1E90FF;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #FFD700;
+      box-shadow: 0 0 15px 5px #FFD700;
+    }
+
+    .message {
+      display: none;
+      font-size: 1.2rem;
+      color: #FFD700;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Ban Appeal Form</h1>
+    <form id="appealForm">
+      <label for="banReason">1. What were you banned for?</label>
+      <textarea id="banReason" placeholder="Be careful and precise, we can check logs"></textarea>
+
+      <label for="appealReason">2. Why do you think we should appeal your ban?</label>
+      <textarea id="appealReason" placeholder="Explain why you think your ban should be appealed."></textarea>
+
+      <label for="additionalInfo">3. Any further information you want to add?</label>
+      <textarea id="additionalInfo" placeholder="Provide any further details you believe are important."></textarea>
+
+      <button type="submit">Submit Appeal</button>
+      <div id="responseMessage" class="message"></div>
+    </form>
+  </div>
+
+  <script>
+    const form = document.getElementById('appealForm');
+    const responseMessage = document.getElementById('responseMessage');
+
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
+      const banReason = document.getElementById('banReason').value;
+      const appealReason = document.getElementById('appealReason').value;
+      const additionalInfo = document.getElementById('additionalInfo').value;
+
+      if (banReason && appealReason) {
+        // Send to Discord (you'll need backend code for this, such as Node.js)
+        // Example: Send the appeal data to Discord webhook or bot via Node.js or other server-side methods
+
+        responseMessage.textContent = "Thank you for your appeal! It has been submitted.";
+        responseMessage.style.display = "block";
+
+        form.reset();
+      } else {
+        responseMessage.textContent = "Please fill in all required fields.";
+        responseMessage.style.display = "block";
+      }
+    });
+  </script>
+
+</body>
+</html>
